@@ -1,0 +1,74 @@
+#main{
+    padding: 0;
+    margin: 10px auto 50px auto;
+}
+
+@keyframes bate-coracao {
+    from {
+        width: 100px;
+        height: 160px;
+        left: -30px;
+        top: 30px;
+    }
+    to {
+        width: 200px;
+        height: 320px;
+        left: -60px;
+        top: 60px;
+    }
+
+}
+.coracao{
+    width: 100px;
+    height: 160px;
+    background: rgb(195, 145, 205);
+    rotate: 45deg;
+    border-radius: 50% 50% 0 50%;
+    animation-name: bate-coracao;
+    animation-duration: 2s;
+    animation-iteration-count: infinite; 
+    animation-direction: alternate;
+    animation-timing-function: ease;
+    animation-delay: 1s;
+}
+
+.coracao::before{
+    content: "";
+    width: 100px;
+    height: 160px;
+    background: rgb(195, 145, 205);
+    rotate:-90deg;
+    border-radius: 50% 50% 50% 0;
+    position: absolute;
+    left: -30px;
+    top: 30px;
+    animation: bate-coracao 2s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease;
+}
+
+
+/* .heart{
+    margin: 0 auto;
+    position: relative;
+    height: 160px;
+    width: 100px;
+    background: #d16ba5;
+    border-radius: 200px 200px 0 0 ;
+    transform: rotate(45deg);
+} */
+
+/* .heart::before{
+    margin: 0 auto;
+    content: "";
+    height: 160px;
+    width: 100px;
+    background: #d16ba5;
+    transform: rotate(-90deg);
+    position: absolute;
+    border-radius: 200px 200px 0 0 ;
+    left: -30px;
+    top: 30px;
+} */
