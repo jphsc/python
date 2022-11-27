@@ -1,0 +1,8 @@
+Para subir um site em python no heroku, é necessário:
+
+1 - Criar um arquivo com nome Procfile sem extensão e seu conteúdo deve ser: web: gunicorn meu_site:app
+Não pode haver nada, além disso, e o nome do arquivo deve ser em maiúsculo e sem extensão.
+
+2 - Criar o requeriments.txt: Rodando no terminal o comando "pip freeze > requeriments.txt"
+Esse comando cria uma lista com as bibliotecas necessárias para rodar o projeto, informando quais bibliotecas
+o servidor deverá ter, por ser as bibliotecas utilizadas no projeto
