@@ -2,7 +2,17 @@ import pymysql
 from app import app
 from config import mysql
 from flask import jsonify
-from flask import flash, request
+from flask import flash, request, render_template
+
+@app.route('/')
+def home():
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+    cursor.execute("SELECT * FROM USUARIOS")
+    res = tuple(cursor)
+    print(res)
+    return render_template('home.html', res=res)
+
 
 @app.route('/create', methods=['POST'])
 def create_emp():
@@ -120,6 +130,7 @@ def showMessage(error=None):
     response.status_code = 404
     return response
 
+
 # Verifica se o arquivo app.py está sendo executado pelo terminal e, caso positivo, iniciamos o servidor do Flask
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

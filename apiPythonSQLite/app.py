@@ -1,6 +1,10 @@
 import sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
+'''
+Referência de estudo
+https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3-pt#passo-6-exibindo-uma-unica-postagem
+'''
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'  # a chave secreta deve ser uma string aleatória longa

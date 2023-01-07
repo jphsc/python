@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Create</title>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" name="name"
+               placeholder="Informe seu nome" class="form-control"
+               value="{{ request.form['NOME'] }}" required></input>
+    </div>
+
+    <div class="form-group">
+        <label for="dtnascimento">Data de nascimento</label>
+        <input id="dtnascimento" type="date" name="dtnascimento" placeholder="dd/mm/aaaa"
+                  class="form-control" required>{{ request.form['content'] }}</input>
+    </div>
+    
+    <div class="form-group">
+        <label for="age">Idade</label>
+        <input type="number" min="18" name="age" readonly id="age"
+                  class="form-control">{{ request.form['content'] }}</input>
+    </div>
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" id="ff">Cadastrar</button>
+    </div>
+</form>
+<script>
+    let dtnascimento = document.getElementById('dtnascimento')
+    dtnascimento.addEventListener('blur', ()=>{
+        const date = new Date()
+        const dtnascimento = document.getElementById('dtnascimento').value
+        let dt = dtnascimento
+        let yearAcctualy = date.toLocaleDateString()
+        let yearBirthday = dtnascimento.substr(8,2)+'/'+dtnascimento.substr(5,2)+'/'+dtnascimento.substr(0,4)
+        let idade = Math.round(((new Date(yearAcctualy)-(new Date(yearBirthday)))/ (1000 * 60 * 60 * 24))/365)
+        document.getElementById("age").innerHTML = idade
+        alert(`Idade: ${idade}`)
+        console.log(`Data atual: ${yearAcctualy}`)
+        console.log(`Data nascimento: ${yearBirthday}`)
+        console.log(`Idade: ${idade}`)
+    })
+
+</script>
+{% endblock %}

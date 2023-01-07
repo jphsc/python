@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>Homepage</title>
+{% endblock %}
+
+{% block content %}
+  <div>
+    <h1>Teste!!</h1>
+    {% for user in res %}
+      <span> Nome do usuário: {{ user['NOME'] }} </span> <br>
+      <span> Nascimento: {{ user['DTNASCIMENTO'] }} </span> <br>
+      <span> Idade do usuário: {{ user['IDADE'] }} </span>
+    {% endfor %}
+  </div>
+{% endblock %}
